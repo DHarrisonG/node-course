@@ -25,8 +25,8 @@ addNote = (title, body) => {
 
 removeNote = (title) => {
     const notes = loadNotes()
-    const notesToKeep = notes.filter( note => note.title !== title )
-    
+    const notesToKeep = notes.filter(note => note.title !== title)
+
     if (notes.length > notesToKeep.length) {
         console.log(chalk.green("Note Removed!"))
         saveNotes(notesToKeep)
@@ -55,7 +55,7 @@ readNote = (title) => {
 
 saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes)
-    fs.writeFileSync('notes.json', dataJSON)
+    fs.writeFileSync('notes.json', dataJsON)
 }
 
 loadNotes = () => {
