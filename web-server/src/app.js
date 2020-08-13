@@ -55,7 +55,7 @@ app.get('/help/*', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.redirect('404', {
+    res.render('404', {
         title: '404',
         name: 'Lacy Pup',
         msg: 'Page not found'
