@@ -46,6 +46,23 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        msg: 'Help article not found',
+        title: '404',
+        name: 'Lacy Pup'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.redirect('404', {
+        title: '404',
+        name: 'Lacy Pup',
+        msg: 'Page not found'
+    })
+})
+
+
 app.listen(3000, () => {
     console.log('Server is up on 3000')
 })
