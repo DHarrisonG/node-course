@@ -14,27 +14,45 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 
     const db = client.db(databaseName)
 
-    // db.collection('users').findOne({ _id: new ObjectID("5f467ead9b43ce0b2a8e8bc5") }, (error, user) => {
-    //     if (error) {
-    //         return console.log('User not found')
+    // db.collection('users').updateOne({
+    //     _id: new ObjectID("5f45abe6c7ad83f858c24d3d")
+    // }, {
+    //     $inc: {
+    //         age: 1
     //     }
-
-    //     console.log(user)
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
     // })
 
-    // db.collection('users').find({ age: 27 }).toArray((error, users) => {
-    //     if (error) {
-    //         return console.log('User not found')
+    // db.collection('tasks').updateMany({
+    //     completed: false
+    // }, {
+    //     $set: {
+    //         completed: true
     //     }
-
-    //     console.log(users)
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
     // })
 
-    db.collection('tasks').findOne({ _id: new mongodb.ObjectId("5f45af7e3db608f9043499b6")}, (error, task) => {
-        console.log(task)
+    // db.collection('users').deleteMany({
+    //     age: 27
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+        console.log(error)
     })
 
-    db.collection('tasks').find( {completed: false}).toArray((error, tasks) => {
-        console.log(tasks)
+    db.collection('taksts').deleteOne({
+        description: 'Walk the puppers'
+    }).then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
     })
+
+
 })
