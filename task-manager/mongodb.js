@@ -43,8 +43,8 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
     // }).then((result) => {
     //     console.log(result)
     // }).catch((error) => {
-        console.log(error)
-    })
+    //     console.log(error)
+    // })
 
     db.collection('taksts').deleteOne({
         description: 'Walk the puppers'
