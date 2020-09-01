@@ -12,14 +12,25 @@ const User = mongoose.model('User', {
         required: true,
         trim: true
     },
+    password: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 7,
+        validate(value){
+            if (!value.length > 6 || value === 'password'){
+                throw new Error('Passowrd must be 6 characters or more')
+            }
+        }
+    },
     email: {
         type: String,
         required: true,
         trim: true,
         lowercase: true,
         validate(value){
-            if (!validator.isEmail(value)) {
-                throw new Error('Email is invalid')
+            if (value.toLowerCase().includes('password')) {
+                throw new Error("Password cannot contain 'password'")
             }
         }
     },
@@ -35,8 +46,9 @@ const User = mongoose.model('User', {
 })
 
 const lacy = new User({
-    name: 'Lacy',
-    email: 'mike@'
+    name: '    Lacy   ',
+    email: 'mike@            ',
+    password: '         re32       '
 })
 
 lacy.save().then(() => {
